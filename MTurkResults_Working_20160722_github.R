@@ -419,3 +419,10 @@ mean(-log(LOOCVMTurk$prob))
 # dev.off()
 # 
 # save.image("/Users/gregorymatthews/Dropbox/brophyTeeth/MechanicalTurkPaper/MTurk2016-11-06.RData")
+
+
+
+
+plot(LOOCVjuliet$prob,LOOCVMTurkMean$prob,main="Probabilites of true class: MTurk vs Expert",xlab="Expert",ylab="Mean MTurk")
+abline(a=0,b=1)
+
