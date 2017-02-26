@@ -374,6 +374,10 @@ for (m in 1:500){print(m)
   datTemp  <-  datTemp[!duplicated(as.character(datTemp$id)),]
   
   
+  
+  ########################################################
+  ##Compare results for different scenarios
+  ########################################################
   predListMTurk <- list()
   for (i in idsVec){
     a <- randomForest(form,data=datTemp[datTemp$id!= i,])
@@ -390,19 +394,11 @@ for (m in 1:500){print(m)
   llListMTurk[[m]] <- mean(-log(LOOCVMTurk$prob))
 }
 
-
-
-
 for (i in 1:nrow(LOOCVjuliet)){
   LOOCVjuliet$prob[i]  <-  LOOCVjuliet[i,as.character(LOOCVjuliet$tribe[i])]
 }
 
 mean(-log(LOOCVjuliet$prob))
-
-
-
-
-
 
 for (i in 1:nrow(LOOCVMTurk)){print(i)
   LOOCVMTurk$prob[i]  <-  LOOCVMTurk[i,as.character(LOOCVMTurk$tribe[i])]
